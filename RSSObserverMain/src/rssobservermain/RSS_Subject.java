@@ -10,28 +10,22 @@ import java.util.ArrayList;
  *
  * @author sabs231
  */
-public class RSS_Lifeboxset implements Subject 
+public class RSS_Subject implements Subject 
 {
     private ArrayList observers;
-    //private RSS information;
-    private String information;
+    private String url;
+    private RSS information;
     
-    public RSS_Lifeboxset()
+    public RSS_Subject(String iurl)
     {
-        observers = new ArrayList();
-        //information = new RSS(); // class not implemented yet
-        information = "";
+        this.observers   = new ArrayList();
+        this.information = new RSS();
+        this.url         = iurl;
     }
-    /*
-    public void setInformation(RSS info)
-    {
-        information = info;
-        notifyObservers();
-    }
-    */
+    
     public void setInformation(String info)
     {
-        information = info;
+        this.information.addInfo(info);
         notifyObservers();
     }
     
@@ -45,7 +39,6 @@ public class RSS_Lifeboxset implements Subject
     public void removeObserver(Observer o) 
     {
         int i = observers.indexOf(o);
-        
         if (i >= 0)
             observers.remove(i);
     }
@@ -58,7 +51,7 @@ public class RSS_Lifeboxset implements Subject
         for (int i = 0; i < observers.size(); i++)
         {
             observer = (Observer)observers.get(i);
-            observer.update(information);
+            observer.update(this.information);
         }
     }
     

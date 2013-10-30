@@ -13,14 +13,19 @@ public class RSSObserverMain {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) 
-    {
-        RSS_Lifeboxset lifeData = new RSS_Lifeboxset();
-        RSS_Slashdot slashData = new RSS_Slashdot();
-        Netvibes reader = new Netvibes(lifeData);
-        GoogleReader r = new GoogleReader(slashData, lifeData);
+    public static void main(String[] args){
+        RSS_Subject lifeData    = new RSS_Subject("http://nethives.com/");
+        RSS_Subject slashData   = new RSS_Subject("http://slashdot.com/");
+        Reader netvibes         = new Reader();
+        Reader googleReader     = new Reader();
         
-        lifeData.setInformation("Hey appple!!!");
-        slashData.setInformation("Hey Pear!!!");
+        // Me suscribo a diferentes fuentes
+        lifeData.registerObserver(netvibes);
+        slashData.registerObserver(netvibes);
+        slashData.registerObserver(googleReader);
+        
+        slashData.setInformation("Actualización slashData 1");
+        lifeData.setInformation("Actualización LifeData 1");
+        slashData.setInformation("Actualización slashData 2");
     }
 }

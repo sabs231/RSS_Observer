@@ -4,14 +4,19 @@
  */
 package rssobservermain;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author sabs231
  */
 public class RSS 
 {
-    public RSS()
-    {
-        
+    private ArrayList entradas;
+    public RSS(){
+        this.entradas = new ArrayList();
+    }
+    public void addInfo(String info){
+        this.entradas.add(info);
     }
 }

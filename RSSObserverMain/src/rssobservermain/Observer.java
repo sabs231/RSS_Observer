@@ -10,6 +10,5 @@ package rssobservermain;
  */
 public interface Observer 
 {
-    //public abstract void update(RSS information);
-    public abstract void update(String information);
+    public abstract void update(RSS newInfo);
 }
