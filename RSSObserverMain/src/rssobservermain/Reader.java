@@ -10,9 +10,11 @@ package rssobservermain;
  */
 public class Reader implements Observer, DisplayElement {
    
+    String nombre;
     RSS lastUpdatedObject;
     
-    public Reader(){
+    public Reader(String name){
+        this.nombre = name;
         lastUpdatedObject = new RSS();
     }
 
@@ -26,7 +28,8 @@ public class Reader implements Observer, DisplayElement {
     @Override
     public void display() 
     {
-        System.out.println("Andrés Implementa lo de pintar el RSS");
+        System.out.println("Nueva información de "+this.nombre);
+        this.lastUpdatedObject.print();
     }
     
 }

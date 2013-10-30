@@ -15,17 +15,18 @@ public class RSSObserverMain {
      */
     public static void main(String[] args){
         RSS_Subject lifeData    = new RSS_Subject("http://nethives.com/");
-        RSS_Subject slashData   = new RSS_Subject("http://slashdot.com/");
-        Reader netvibes         = new Reader();
-        Reader googleReader     = new Reader();
+        RSS_Subject nuevegag   = new RSS_Subject("http://9gag.com/");
+        Reader netvibes         = new Reader("Netvibes");
+        Reader googleReader     = new Reader("Google Reader");
         
         // Me suscribo a diferentes fuentes
         lifeData.registerObserver(netvibes);
-        slashData.registerObserver(netvibes);
-        slashData.registerObserver(googleReader);
+        nuevegag.registerObserver(netvibes);
+        nuevegag.registerObserver(googleReader);
         
-        slashData.setInformation("Actualización slashData 1");
+        nuevegag.setInformation("Actualización 9gag 1");
         lifeData.setInformation("Actualización LifeData 1");
-        slashData.setInformation("Actualización slashData 2");
+        nuevegag.setInformation("Actualización 9gag 2");
+        lifeData.setInformation("Actualización LifeData 2");
     }
 }

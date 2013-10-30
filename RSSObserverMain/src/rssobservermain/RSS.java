@@ -19,4 +19,9 @@ public class RSS
     public void addInfo(String info){
         this.entradas.add(info);
     }
+    public void print(){
+        for(int i = 0; i < this.entradas.size(); i++){
+            System.out.println("["+i+"]"+" "+this.entradas.get(i));
+        }
+    }
 }
